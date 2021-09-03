@@ -7,12 +7,17 @@ h1 {
 }
 
 .bio {
-    background-color: lightsalmon;
-    text-align: center;
+    background-color:lightsteelblue;
+    border: 5px red;
+    text-align: left;
+    position:absolute;
+    top: 112px;
+    right:625px;
+    height: 300px;
 }
 
 p {
-    background-color: gainsboro;
+    background-color:lightsteelblue;
 }
 
 .book {
@@ -21,4 +26,20 @@ p {
 
 .football {
     text-align: center;
+}
+
+a {
+    text-align:start;
+}
+
+.stories {
+    position:absolute;
+    top: 500px;
+    left:75px;
+}
+
+.basketball {
+    position:absolute;
+    top: 125px;
+    right:250px;
 }
