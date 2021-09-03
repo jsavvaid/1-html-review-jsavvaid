@@ -26,6 +26,7 @@ p {
 
 .football {
     text-align: center;
+    
 }
 
 a {
@@ -40,6 +41,6 @@ a {
 
 .basketball {
     position:absolute;
-    top: 125px;
+    top: 150px;
     right:250px;
 }
