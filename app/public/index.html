@@ -43,17 +43,18 @@
     <div class="container">
       <div class="row align-items-start">
         <div class="row">
-            <a href="img/quintonkiss.jpg"><img src="img/quintonkiss.jpg" alt="Quinton Kiss Image" style="margin-left: 6.5%;" style="margin-bottom: 8%;" height="300px"></a>
+            <a target = "_blank" v-bind:href="person.picture.thumbnail">
+              <img v-bind:src="person.picture.large" alt="Random Image"></a>
         </div>
 
         <div class="bio col col-4">
           <h2><u>Who Am I?</u></h2>
           <ul>Name: {{person.name.first}} {{person.name.last}}</ul>
           <ul>Country: {{person.location.country}}</ul>
-          <ul>Birthdate: {{person.dob.date}}</ul>
+          <ul>Birthdate: {{prettyBirthday}}</ul>
           <ul>Age: {{person.dob.age}} years old</ul>
           <ul>Email Address: <a href="mailto:email@example.com" >{{person.email}}</a> </ul>
-          <ul>Profile Picture Website: <a href={{person.picture.large}}>Image Link</a> </ul>
+          <ul>Profile Picture Website: <a href="person.picture.large">Image Link</a> </ul>
         </div>
       </div>
       
@@ -73,6 +74,7 @@
 
 
     <script src="js/index.js"></script>
+    <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
   </div>
 </body>
 
