@@ -47,7 +47,7 @@
               <img v-bind:src="person.picture.large" alt="Random Image"></a>
         </div>
 
-        <div class="bio col col-4">
+        <div class="bio col col-4" v-if="person">
           <h2><u>Who Am I?</u></h2>
           <ul>Name: {{person.name.first}} {{person.name.last}}</ul>
           <ul>Country: {{person.location.country}}</ul>
@@ -76,9 +76,9 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.min.js" integrity="sha384-cn7l7gDp0eyniUwwAZgrzD06kc/tftFf19TOAs2zVinnD/C7E91j9yyk5//jjpt/" crossorigin="anonymous"></script>
     -->
 
-
-    <script src="js/index.js"></script>
     <script src="https://unpkg.com/dayjs@1.8.21/dayjs.min.js"></script>
+    <script src="js/index.js"></script>
+    
   </div>
 </body>
 

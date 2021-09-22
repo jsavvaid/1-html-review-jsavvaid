@@ -1,13 +1,18 @@
 const Person = {
     data() {
       return {
-        "person": {},
+        "person": {
+            name: {},
+            dob: {},
+            picture: {},
+            location: {},
+
+        },
         }
     },
     computed: {
         prettyBirthday() {
-            return dayjs(this.person.dob.date)
-            .format('D MMM YYYY');
+            return dayjs(this.person.dob.date).format('D MMM YYYY');
         }
     },
 
