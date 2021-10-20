@@ -50,6 +50,7 @@
                     <th scope="col">Publisher</th>
                     <th scope="col">Page Count</th>
                     <th scope="col">MSRP</th>
+                    <th scope="col">Status</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -60,10 +61,16 @@
                     <td>{{ book.publisher }}</td>
                     <td>{{ book.pageCount }}</td>
                     <td>{{ book.msrp }}</td>
+                    <td></td>
+                    <td>
+                      <button type="button" v-on:click="handleEditOffer(offer)" class="btn btn-outline-secondary btn-sm">Edit</button>
+                      <button type="button" class="btn btn-outline-secondary btn-sm">Delete</button>
+                    </td>
                 </tr>
                 </tbody>
               </table>
             
+
             </div>
           </div>
       </div>
