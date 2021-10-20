@@ -48,11 +48,11 @@ const Person = {
         postNewBook(evt) {
             //this.offerForm.studentId = this.selectedStudent.id;        
             
-            console.log("Creating!", this.offerForm);
+            console.log("Creating!", this.bookForm);
     
             fetch('api/books/create.php', {
                 method:'POST',
-                body: JSON.stringify(this.offerForm),
+                body: JSON.stringify(this.bookForm),
                 headers: {
                   "Content-Type": "application/json; charset=utf-8"
                 }
@@ -61,19 +61,18 @@ const Person = {
               .then( json => {
                 console.log("Returned from post:", json);
                 // TODO: test a result was returned!
-                this.offers = json;
-                
+                this.books = json;
                 // reset the form
                 this.handleResetEdit();
               });
           },
           handleEditOffer(offer) {
-              this.selectedOffer = offer;
-              this.offerForm = Object.assign({}, this.selectedOffer);
+              this.selectedbooks = books;
+              this.bookForm = Object.assign({}, this.selectedbooks);
           },
           handleResetEdit() {
-              this.selectedOffer = null;
-              this.offerForm = {};
+              this.selectedbooks = null;
+              this.bookForm = {};
           }
         
     },
