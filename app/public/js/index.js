@@ -7,8 +7,9 @@ const Person = {
             picture: {},
             location: {}
             },
-        books:[]
-        }
+        books:[],
+        bookForm: {}
+      }
     },
     computed: {
         prettyBirthday() {
@@ -43,6 +44,38 @@ const Person = {
                 console.error(err);
             })
         },
+
+        postNewBook(evt) {
+            //this.offerForm.studentId = this.selectedStudent.id;        
+            
+            console.log("Creating!", this.offerForm);
+    
+            fetch('api/books/create.php', {
+                method:'POST',
+                body: JSON.stringify(this.offerForm),
+                headers: {
+                  "Content-Type": "application/json; charset=utf-8"
+                }
+              })
+              .then( response => response.json() )
+              .then( json => {
+                console.log("Returned from post:", json);
+                // TODO: test a result was returned!
+                this.offers = json;
+                
+                // reset the form
+                this.handleResetEdit();
+              });
+          },
+          handleEditOffer(offer) {
+              this.selectedOffer = offer;
+              this.offerForm = Object.assign({}, this.selectedOffer);
+          },
+          handleResetEdit() {
+              this.selectedOffer = null;
+              this.offerForm = {};
+          }
+        
     },
     created() {
         this.fetchBookData();

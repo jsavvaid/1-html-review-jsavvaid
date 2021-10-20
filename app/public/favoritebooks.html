@@ -41,37 +41,64 @@
               <h4>Favorite Books</h4>
             </div>
               <div class="book">
-              <table id="taskTable" class="table">
-                <thead>
-                  <tr>
-                    <th scope="col">Title</th>
-                    <th scope="col">Authors</th>
-                    <th scope="col">Year Published</th>
-                    <th scope="col">Publisher</th>
-                    <th scope="col">Page Count</th>
-                    <th scope="col">MSRP</th>
-                    <th scope="col">Status</th>
+                <table id="taskTable" class="table">
+                  <thead>
+                    <tr>
+                      <th scope="col">Title</th>
+                      <th scope="col">Authors</th>
+                      <th scope="col">Year Published</th>
+                      <th scope="col">Publisher</th>
+                      <th scope="col">Page Count</th>
+                      <th scope="col">MSRP</th>
+                      <th scope="col">Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr v-for="book in books">
+                      <td>{{ book.title }}</td>
+                      <td>{{ book.author }}</td>
+                      <td>{{ book.yearPublished }}</td>
+                      <td>{{ book.publisher }}</td>
+                      <td>{{ book.pageCount }}</td>
+                      <td>{{ book.msrp }}</td>
+                      <td>
+                        <button type="button" v-on:click="handleEditOffer(offer)" class="btn btn-outline-secondary btn-sm">Edit</button>
+                        <button type="button" class="btn btn-outline-secondary btn-sm">Delete</button>
+                      </td>
                   </tr>
-                </thead>
-                <tbody>
-                  <tr v-for="book in books">
-                    <td>{{ book.title }}</td>
-                    <td>{{ book.author }}</td>
-                    <td>{{ book.yearPublished }}</td>
-                    <td>{{ book.publisher }}</td>
-                    <td>{{ book.pageCount }}</td>
-                    <td>{{ book.msrp }}</td>
-                    <td></td>
-                    <td>
-                      <button type="button" v-on:click="handleEditOffer(offer)" class="btn btn-outline-secondary btn-sm">Edit</button>
-                      <button type="button" class="btn btn-outline-secondary btn-sm">Delete</button>
-                    </td>
-                </tr>
-                </tbody>
-              </table>
-            
-
+                  </tbody>
+                </table>
             </div>
+            <h4>Add a New Book</h4>
+
+            <form v-on:submit.prevent="postNewBook">
+              <div class="mb-3">
+                <label for="bookTitle" class="form-label">Title</label>
+                <input type="text" v-model="bookForm.title" class="form-control" id="bookTitle">
+              </div>
+              <div class="mb-3">
+                <label for="author" class="form-label">Author</label>
+                <input type="text" v-model="bookForm.author" class="form-control" id="author">
+              </div>
+              <div class="mb-3">
+                <label for="yearPublished" class="form-label">Year Published</label>
+                <input type="number" v-model="bookForm.yearPublished" class="form-control" id="yearPublished">
+              </div>
+              <div class="mb-3">
+                <label for="publisher" class="form-label">Publisher</label>
+                <input type="text" v-model="bookForm.publisher" class="form-control" id="publisher">
+              </div>
+              <div class="mb-3">
+                <label for="pageCount" class="form-label">Page Count</label>
+                <input type="number" v-model="bookForm.pageCount" class="form-control" id="pageCount">
+              </div>
+              <div class="mb-3">
+                <label for="MSRP" class="form-label">MSRP</label>
+                <input type="text" v-model="bookForm.msrp" class="form-control" id="MSRP">
+              </div>
+              <button type="submit" class="btn btn-primary">Add Book</button>
+            </form>
+
           </div>
       </div>
     </div>
