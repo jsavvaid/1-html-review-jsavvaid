@@ -51,6 +51,7 @@
                       <th scope="col">Page Count</th>
                       <th scope="col">MSRP</th>
                       <th scope="col">Status</th>
+                      <th scope="col">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -61,20 +62,21 @@
                       <td>{{ book.publisher }}</td>
                       <td>{{ book.pageCount }}</td>
                       <td>{{ book.msrp }}</td>
+                      <td>{{ book.status }}</td>
                       <td>
-                        <button type="button" v-on:click="handleEditOffer(offer)" class="btn btn-outline-secondary btn-sm">Edit</button>
-                        <button type="button" class="btn btn-outline-secondary btn-sm">Delete</button>
+                        <button type="button" v-on:click="handleEditOffer(book)" class="btn btn-outline-secondary btn-sm">Edit</button>
+                        <button type="button"v-on:click="postDeleteOffer(book)" class="btn btn-outline-secondary btn-sm">Delete</button>
                       </td>
                   </tr>
                   </tbody>
                 </table>
             </div>
-            <h4>Add a New Book</h4>
+            <h3>{{ selectedBook === null ? "Add " : "Edit " }} Book</h3>
 
-            <form v-on:submit.prevent="postNewBook">
+            <form v-on:submit.prevent="postOffer">
               <div class="mb-3">
-                <label for="bookTitle" class="form-label">Title</label>
-                <input type="text" v-model="bookForm.title" class="form-control" id="bookTitle">
+                <label for="title" class="form-label">Title</label>
+                <input type="text" v-model="bookForm.title" class="form-control" id="title">
               </div>
               <div class="mb-3">
                 <label for="author" class="form-label">Author</label>
@@ -93,10 +95,10 @@
                 <input type="number" v-model="bookForm.pageCount" class="form-control" id="pageCount">
               </div>
               <div class="mb-3">
-                <label for="MSRP" class="form-label">MSRP</label>
-                <input type="text" v-model="bookForm.msrp" class="form-control" id="MSRP">
+                <label for="msrp" class="form-label">MSRP</label>
+                <input type="text" v-model="bookForm.msrp" class="form-control" id="msrp">
               </div>
-              <button type="submit" class="btn btn-primary">Add Book</button>
+              <button type="submit" class="btn btn-primary">{{ selectedBook === null ? "Add " : "Edit " }} Book</button>
             </form>
 
           </div>

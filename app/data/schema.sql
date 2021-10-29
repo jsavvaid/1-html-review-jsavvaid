@@ -6,6 +6,7 @@ USE jsavvaid; -- Switch Databases
 
 DROP TABLE IF EXISTS books;
 CREATE TABLE books (
+	id int PRIMARY KEY AUTO_INCREMENT ,
 	title varchar(75),
 	author varchar(30),
 	yearPublished int,
